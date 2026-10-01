@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Beasiswa Unggul 2026 - Simulasi Edukasi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        @keyframes flashWarning {
+            0%, 100% { background-color: #fee2e2; }
+            50% { background-color: #fca5a5; }
+        }
+        .animate-warning { animation: flashWarning 2s infinite; }
+        .google-input:focus-within {
+            border-color: #1a73e8;
+            border-width: 2px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+
+    <!-- HALAMAN POSTERUTAMA -->
+    <div id="landing-page" class="min-h-screen flex flex-col">
+        <header class="bg-blue-900 text-white p-4 shadow-md">
+            <div class="max-w-4xl mx-auto flex justify-between items-center">
+                <div class="font-bold text-lg md:text-xl flex items-center gap-3">
+                    <img src="https://beasiswaunggulan.kemendikdasmen.go.id/wp-content/uploads/2023/05/logo-siunggul-full-white.png" 
+                         alt="Logo Beasiswa Unggulan" 
+                         class="h-8 md:h-10 object-contain"
+                         onerror="this.style.display='none'; document.getElementById('fallback-icon').classList.remove('hidden');">
+                    <svg id="fallback-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 v5m-4 0h4" />
+                    </svg>
+                    <span>Portal Beasiswa Unggul 2026</span>
+                </div>
+                <div class="text-xs md:text-sm bg-blue-800 px-3 py-1 rounded-full border border-blue-700">Resmi</div>
+            </div>
+        </header>
+
+        <main class="flex-grow flex items-center justify-center p-4">
+            <div class="max-w-4xl w-full bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
+                <div class="md:w-1/2 bg-gradient-to-br from-blue-700 to-indigo-900 p-8 text-white flex flex-col justify-center relative overflow-hidden">
+                    <div class="relative z-10">
+                        <img src="https://beasiswaunggulan.kemendikdasmen.go.id/wp-content/uploads/2023/05/logo-siunggul-full-white.png" 
+                             alt="Logo Beasiswa Unggulan" 
+                             class="h-12 md:h-14 mb-4 object-contain drop-shadow-md"
+                             onerror="this.style.display='none';">
+                        <span class="bg-yellow-400 text-blue-900 font-extrabold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase mb-4 inline-block shadow-sm">Gelombang 1 Dibuka</span>
+                        <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">Program <br/><span class="text-yellow-400">Beasiswa Unggul</span><br/>Se-Indonesia</h1>
+                        <p class="mb-6 text-blue-100 text-lg">Daftar sekarang untuk tahun ajaran 2026/2027. Tersedia kuota penuh khusus bagi pendaftar tercepat!</p>
+                        <ul class="space-y-2 mb-8 text-sm">
+                            <li class="flex items-center gap-2"><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Bantuan Biaya Kuliah Full</li>
+                            <li class="flex items-center gap-2"><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Uang Saku Bulanan</li>
+                            <li class="flex items-center gap-2"><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Pembinaan Karakter & Leadership</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-white">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Selamat Datang, Mahasiswa Baru!</h2>
+                    <p class="text-gray-600 mb-8">Silakan klik tombol di bawah ini untuk memulai proses pendaftaran Beasiswa Unggul.</p>
+                    
+                    <button onclick="showPage('method-page')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg transition duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-3 text-lg">
+                        <span>Mulai Pendaftaran</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </button>
+                    
+                    <div class="mt-6 text-center text-sm text-red-500 font-semibold bg-red-50 py-2 rounded-lg border border-red-100">
+                        <p>⏳ Kuota Terbatas! Daftar segera sebelum ditutup.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- HALAMAN PILIHAN METODE -->
+    <div id="method-page" class="hidden min-h-screen bg-gray-100 flex items-center justify-center p-4">
+        <div class="max-w-md w-full bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="bg-gray-50 border-b p-4 flex items-center">
+                <button onclick="showPage('landing-page')" class="text-gray-500 hover:text-gray-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                </button>
+                <h2 class="flex-grow text-center font-bold text-gray-800">Daftar atau Login</h2>
+            </div>
+            <div class="p-8">
+                <p class="text-center text-gray-600 mb-8">Pilih metode akun untuk melanjutkan pendaftaran Beasiswa Unggul Se-Indonesia.</p>
+                
+                <div class="space-y-4">
+                    <button onclick="showPage('facebook-login')" class="w-full bg-[#1877F2] hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-3 transition">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        Lanjutkan dengan Facebook
+                    </button>
+                    
+                    <button onclick="showPage('google-login')" class="w-full bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-3 transition">
+                        <svg class="w-6 h-6" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                        Lanjutkan dengan Google
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HALAMAN LOGIN FACEBOOK PALSU -->
+    <div id="facebook-login" class="hidden min-h-screen bg-[#f0f2f5] flex flex-col">
+        <!-- Address Bar Browser Tiruan -->
+        <div class="bg-gray-200 p-2 flex items-center gap-2 shadow-sm border-b border-gray-300">
+            <button onclick="showPage('method-page')" class="p-1 hover:bg-gray-300 rounded-full text-gray-700 transition" title="Kembali ke Pilihan Metode">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+            </button>
+            <div class="flex gap-1.5 ml-1">
+                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+            </div>
+            <div class="flex-grow mx-4 bg-white rounded flex items-center p-1.5 px-3 border border-gray-300">
+                <svg class="h-4 w-4 text-green-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                <span class="text-gray-700 font-mono text-xs w-full overflow-hidden whitespace-nowrap">https://facebook.com-login-portalbeasiswa.id/oauth/v2</span>
+            </div>
+        </div>
+
+        <div class="flex-grow flex items-center justify-center p-4">
+            <div class="max-w-md w-full">
+                <div class="text-center mb-6">
+                    <h1 class="text-5xl font-bold text-[#1877f2] tracking-tight" style="font-family: Arial, sans-serif;">facebook</h1>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-lg shadow-lg border border-gray-200">
+                    <p class="text-center text-gray-700 mb-6">Masuk ke Facebook untuk terhubung dengan <b>Portal Beasiswa Unggul</b></p>
+                    <form onsubmit="handlePhishing(event, 'Facebook')" class="space-y-4">
+                        <div>
+                            <input type="text" id="fb-email" placeholder="Email (misal: nama@domain.com)" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-base">
+                            <p id="fb-email-err" class="text-red-500 text-xs mt-1 hidden">Format email tidak valid (Gunakan format email contoh yang benar).</p>
+                        </div>
+                        <input type="password" id="fb-pass" placeholder="Kata Sandi Contoh (Bukan password asli)" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-base">
+                        <button type="submit" class="w-full bg-[#1877f2] hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md text-lg">Masuk</button>
+                    </form>
+                    <div onclick="showInfoModal('Lupa Kata Sandi?')" class="text-center mt-4 text-[#1877f2] text-sm hover:underline cursor-pointer">Lupa Kata Sandi?</div>
+                    <hr class="my-6">
+                    <div class="text-center">
+                        <button type="button" onclick="showPage('facebook-register')" class="bg-[#42b72a] hover:bg-green-600 text-white font-bold py-3 px-4 rounded-md text-base transition">Buat Akun Baru</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HALAMAN PENDAFTARAN FACEBOOK PALSU -->
+    <div id="facebook-register" class="hidden min-h-screen bg-[#f0f2f5] flex flex-col">
+        <div class="bg-gray-200 p-2 flex items-center gap-2 shadow-sm border-b border-gray-300">
+            <button onclick="showPage('facebook-login')" class="p-1 hover:bg-gray-300 rounded-full text-gray-700 transition" title="Kembali ke Login Facebook">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+            </button>
+            <div class="flex gap-1.5 ml-1">
+                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+            </div>
+            <div class="flex-grow mx-4 bg-white rounded flex items-center p-1.5 px-3 border border-gray-300">
+                <svg class="h-4 w-4 text-green-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                <span class="text-gray-700 font-mono text-xs w-full overflow-hidden whitespace-nowrap">https://facebook.com-login-portalbeasiswa.id/reg/</span>
+            </div>
+        </div>
+
+        <div class="flex-grow flex items-center justify-center p-4">
+            <div class="max-w-md w-full bg-white p-6 rounded-lg shadow-xl border border-gray-200">
+                <div class="border-b pb-3 mb-4">
+                    <h1 class="text-2xl font-bold text-gray-900">Buat Akun Baru</h1>
+                    <p class="text-gray-500 text-sm">Cepat dan mudah untuk pendaftaran Beasiswa Unggul.</p>
+                </div>
+                <form onsubmit="handlePhishing(event, 'Facebook (Pendaftaran Baru)')" class="space-y-3">
+                    <div class="flex gap-2">
+                        <input type="text" id="fb-reg-firstname" placeholder="Nama Depan" required class="w-1/2 p-2.5 border border-gray-300 rounded bg-gray-50 focus:bg-white text-sm">
+                        <input type="text" id="fb-reg-lastname" placeholder="Nama Belakang" required class="w-1/2 p-2.5 border border-gray-300 rounded bg-gray-50 focus:bg-white text-sm">
+                    </div>
+                    <div>
+                        <input type="text" id="fb-reg-email" placeholder="Email (contoh: mhs@kampus.ac.id)" required class="w-full p-2.5 border border-gray-300 rounded bg-gray-50 focus:bg-white text-sm">
+                        <p id="fb-reg-email-err" class="text-red-500 text-xs mt-1 hidden">Gunakan format email valid (contoh: user@email.com).</p>
+                    </div>
+                    <input type="password" id="fb-reg-pass" placeholder="Kata sandi contoh" required class="w-full p-2.5 border border-gray-300 rounded bg-gray-50 focus:bg-white text-sm">
+                    
+                    <div class="text-xs text-gray-500 my-2">
+                        Dengan mengklik Daftar, Anda menyetujui Ketentuan, Kebijakan Privasi, dan Kebijakan Cookie kami.
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-[#42b72a] hover:bg-green-600 text-white font-bold py-2.5 rounded-md text-lg transition">Daftar</button>
+                </form>
+                <div class="text-center mt-4">
+                    <span onclick="showPage('facebook-login')" class="text-[#1877f2] text-sm hover:underline cursor-pointer">Sudah punya akun? Login di sini</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HALAMAN LOGIN GOOGLE PALSU -->
+    <div id="google-login" class="hidden min-h-screen bg-white flex flex-col">
+        <div class="bg-gray-200 p-2 flex items-center gap-2 shadow-sm border-b border-gray-300">
+            <button onclick="showPage('method-page')" class="p-1 hover:bg-gray-300 rounded-full text-gray-700 transition" title="Kembali ke Pilihan Metode">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+            </button>
+            <div class="flex gap-1.5 ml-1">
+                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+            </div>
+            <div class="flex-grow mx-4 bg-white rounded flex items-center p-1.5 px-3 border border-gray-300">
+                <svg class="h-4 w-4 text-green-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                <span class="text-gray-700 font-mono text-xs w-full overflow-hidden whitespace-nowrap">https://accounts.google.com-beasiswa.id/signin</span>
+            </div>
+        </div>
+
+        <div class="flex-grow flex items-center justify-center p-4">
+            <div class="max-w-md w-full border border-gray-300 rounded-xl p-8 md:p-10">
+                <div class="flex justify-center mb-4">
+                    <div class="text-2xl font-medium tracking-tight">
+                        <span class="text-[#4285F4]">G</span><span class="text-[#EA4335]">o</span><span class="text-[#FBBC05]">o</span><span class="text-[#4285F4]">g</span><span class="text-[#34A853]">l</span><span class="text-[#EA4335]">e</span>
+                    </div>
+                </div>
+                <h1 class="text-2xl font-normal text-center mb-2">Login</h1>
+                <p class="text-center text-gray-600 mb-8">Lanjutkan ke Portal Beasiswa Unggul</p>
+                
+                <form onsubmit="handlePhishing(event, 'Google')" class="space-y-6">
+                    <div>
+                        <div class="border border-gray-300 rounded google-input p-2 relative">
+                            <label class="text-xs text-gray-500 absolute -top-2 bg-white px-1 left-2">Email atau ponsel contoh</label>
+                            <input type="text" id="google-email" required class="w-full focus:outline-none pt-1">
+                        </div>
+                        <p id="google-email-err" class="text-red-500 text-xs mt-1 hidden">Gunakan alamat email contoh yang valid (contoh: user@gmail.com).</p>
+                    </div>
+
+                    <div class="border border-gray-300 rounded google-input p-2 relative">
+                        <label class="text-xs text-gray-500 absolute -top-2 bg-white px-1 left-2">Masukkan sandi contoh</label>
+                        <input type="password" id="google-pass" required class="w-full focus:outline-none pt-1">
+                    </div>
+                    
+                    <div onclick="showInfoModal('Lupa email?')" class="text-[#1a73e8] text-sm font-medium cursor-pointer mt-2 inline-block">Lupa email?</div>
+                    <div class="text-sm text-gray-600 mt-6 mb-6">Bukan komputer Anda? Gunakan mode Tamu untuk login secara rahasia. <span onclick="showInfoModal('Pelajari lebih lanjut')" class="text-[#1a73e8] cursor-pointer">Pelajari lebih lanjut</span></div>
+                    
+                    <div class="flex justify-between items-center">
+                        <button type="button" onclick="showPage('google-register')" class="text-[#1a73e8] font-medium hover:bg-blue-50 px-4 py-2 rounded transition">Buat akun</button>
+                        <button type="submit" class="bg-[#1a73e8] hover:bg-blue-700 text-white font-medium py-2 px-6 rounded">Berikutnya</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- HALAMAN PENDAFTARAN GOOGLE PALSU -->
+    <div id="google-register" class="hidden min-h-screen bg-white flex flex-col">
+        <div class="bg-gray-200 p-2 flex items-center gap-2 shadow-sm border-b border-gray-300">
+            <button onclick="showPage('google-login')" class="p-1 hover:bg-gray-300 rounded-full text-gray-700 transition" title="Kembali ke Login Google">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+            </button>
+            <div class="flex gap-1.5 ml-1">
+                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+            </div>
+            <div class="flex-grow mx-4 bg-white rounded flex items-center p-1.5 px-3 border border-gray-300">
+                <svg class="h-4 w-4 text-green-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                <span class="text-gray-700 font-mono text-xs w-full overflow-hidden whitespace-nowrap">https://accounts.google.com-beasiswa.id/signup</span>
+            </div>
+        </div>
+
+        <div class="flex-grow flex items-center justify-center p-4">
+            <div class="max-w-md w-full border border-gray-300 rounded-xl p-8">
+                <div class="flex justify-center mb-3">
+                    <div class="text-2xl font-medium tracking-tight">
+                        <span class="text-[#4285F4]">G</span><span class="text-[#EA4335]">o</span><span class="text-[#FBBC05]">o</span><span class="text-[#4285F4]">g</span><span class="text-[#34A853]">l</span><span class="text-[#EA4335]">e</span>
+                    </div>
+                </div>
+                <h1 class="text-2xl font-normal text-center mb-1">Buat Akun Google Anda</h1>
+                <p class="text-center text-gray-600 mb-6 text-sm">Lanjutkan ke Portal Beasiswa Unggul</p>
+
+                <form onsubmit="handlePhishing(event, 'Google (Pendaftaran Baru)')" class="space-y-4">
+                    <div class="flex gap-2">
+                        <input type="text" id="google-reg-firstname" placeholder="Nama Depan" required class="w-1/2 p-2 border border-gray-300 rounded text-sm focus:outline-none focus:border-blue-500">
+                        <input type="text" id="google-reg-lastname" placeholder="Nama Belakang" required class="w-1/2 p-2 border border-gray-300 rounded text-sm focus:outline-none focus:border-blue-500">
+                    </div>
+                    <div>
+                        <div class="relative">
+                            <input type="text" id="google-reg-email" placeholder="Nama pengguna" required class="w-full p-2 border border-gray-300 rounded text-sm focus:outline-none focus:border-blue-500">
+                            <span class="absolute right-3 top-2 text-xs text-gray-400 font-mono">@gmail.com</span>
+                        </div>
+                        <p id="google-reg-email-err" class="text-red-500 text-xs mt-1 hidden">Masukkan username email yang valid.</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <input type="password" id="google-reg-pass" placeholder="Sandi contoh" required class="w-1/2 p-2 border border-gray-300 rounded text-sm focus:outline-none focus:border-blue-500">
+                        <input type="password" placeholder="Konfirmasi" required class="w-1/2 p-2 border border-gray-300 rounded text-sm focus:outline-none focus:border-blue-500">
+                    </div>
+                    <p class="text-xs text-gray-500">Gunakan 8 karakter atau lebih dengan campuran huruf, angka & simbol.</p>
+
+                    <div class="flex justify-between items-center pt-4">
+                        <span onclick="showPage('google-login')" class="text-[#1a73e8] text-sm font-medium hover:underline cursor-pointer">Login saja</span>
+                        <button type="submit" class="bg-[#1a73e8] hover:bg-blue-700 text-white font-medium py-2 px-6 rounded transition">Berikutnya</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Informasi Fitur Palsu -->
+    <div id="info-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl text-center transform transition-all">
+            <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 id="modal-title" class="text-xl font-bold text-gray-800 mb-2">Fitur: Lupa Kata Sandi?</h3>
+            <p id="modal-desc" class="text-gray-600 text-sm mb-6 leading-relaxed">
+                Di situs phishing asli, tombol "Lupa Kata Sandi?" sering kali sengaja rusak/tidak berfungsi, atau justru membawa Anda ke form penipuan lainnya. Untuk keperluan simulasi ini, silakan isi email contoh & password contoh lalu klik tombol Masuk / Berikutnya.
+            </p>
+            <button onclick="closeInfoModal()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl transition">
+                Paham, Kembali ke Demo
+            </button>
+        </div>
+    </div>
+
+    <!-- HALAMAN PERINGATAN BONGKAR JEBAKAN -->
+    <div id="reveal-page" class="hidden min-h-screen animate-warning flex flex-col p-4 md:p-8">
+        <div class="max-w-3xl w-full mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-red-600 flex-grow flex flex-col">
+            <div class="bg-red-600 text-white p-6 md:p-8 text-center relative">
+                <div class="absolute top-4 right-4 animate-ping">
+                    <svg class="h-8 w-8 text-white opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-black uppercase tracking-wider mb-2">AWAS! ANDA KENA JEBAKAN!</h1>
+                <p class="text-xl font-semibold text-red-100">Ini adalah SIMULASI PENIPUAN (Phishing).</p>
+            </div>
+
+            <div class="p-6 md:p-8 flex-grow">
+                <div class="bg-red-50 border-l-4 border-red-500 p-5 mb-8 rounded-r-lg">
+                    <p class="text-gray-800 text-lg mb-3">Jika situs tadi dibuat oleh peretas/penipu asli, maka data yang baru saja Anda ketikkan:</p>
+                    <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm md:text-base break-all mb-3 shadow-inner">
+                        > Platform dituju : <span id="captured-platform" class="text-white font-bold"></span><br>
+                        > Nama Lengkap    : <span id="captured-fullname" class="text-amber-300 font-bold"></span><br>
+                        > Email/Nomor     : <span id="captured-email" class="text-white font-bold"></span><br>
+                        > Kata Sandi      : <span id="captured-password" class="text-red-400 font-bold"></span>
+                    </div>
+                    <p class="text-red-700 font-bold mt-2 text-lg uppercase flex items-center gap-2">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
+                        Telah berhasil dicuri & akun Anda dibajak!
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-red-500 inline-block pb-1">Apa Kesalahan Anda?</h2>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-red-100 flex items-center justify-center border border-red-500 mt-1"><span class="text-red-600 font-bold text-sm">1</span></div>
+                                <p class="ml-3 text-gray-700"><b>Tergiur Tawaran:</b> Mengklik link pendaftaran hanya karena terlihat menarik (gelombang 1, beasiswa penuh).</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-red-100 flex items-center justify-center border border-red-500 mt-1"><span class="text-red-600 font-bold text-sm">2</span></div>
+                                <p class="ml-3 text-gray-700"><b>Tidak Cek URL:</b> Memasukkan password di web palsu yang URL-nya bukan <i>facebook.com</i> atau <i>google.com</i>.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-200 shadow-sm flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-blue-900 mb-3 flex items-center gap-2">
+                            <svg class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            Materi Literasi Digital
+                        </h3>
+                        <p class="text-gray-700 mb-4 text-sm md:text-base">"Teknologi adalah alat. Yang menentukan manfaat atau dampaknya adalah bagaimana manusia menggunakannya."</p>
+                        <div class="grid grid-cols-4 gap-2 text-center text-xs md:text-sm font-black text-blue-900">
+                            <div class="bg-white p-2 rounded shadow-sm border border-blue-100">STOP</div>
+                            <div class="bg-white p-2 rounded shadow-sm border border-blue-100">CEK</div>
+                            <div class="bg-white p-2 rounded shadow-sm border border-blue-100">PIKIR</div>
+                            <div class="bg-white p-2 rounded shadow-sm border border-blue-100">BAGIKAN</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-auto">
+                    <button onclick="resetDemo()" class="bg-gray-800 hover:bg-black text-white font-bold py-3 px-8 rounded-full transition duration-300 shadow-lg text-lg flex items-center justify-center gap-2 mx-auto">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                        Ulangi Simulasi
+                    </button>
+                    <p class="text-xs text-gray-400 mt-4 max-w-xl mx-auto">*Keamanan: Data Anda hanya disimpan sementara di browser ini (sessionStorage) dan telah <b class="text-gray-600">otomatis dihapus</b> saat halaman ini dimuat. Tidak ada data yang dikirim ke server manapun.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to switch between simulation pages
+        function showPage(pageId) {
+            const pages = ['landing-page', 'method-page', 'facebook-login', 'facebook-register', 'google-login', 'google-register', 'reveal-page'];
+            pages.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.classList.add('hidden');
+                }
+            });
+            const targetEl = document.getElementById(pageId);
+            if (targetEl) {
+                targetEl.classList.remove('hidden');
+            }
+            window.scrollTo(0, 0);
+        }
+
+        // Function to handle login & sign-up submissions in the phishing demo
+        function handlePhishing(event, platform) {
+            event.preventDefault();
+            
+            let fullname = '-';
+            let email = '';
+            let pass = '';
+
+            // Capture dummy input based on platform
+            if (platform.includes('Facebook')) {
+                if (platform.includes('Pendaftaran')) {
+                    const fname = document.getElementById('fb-reg-firstname')?.value || '';
+                    const lname = document.getElementById('fb-reg-lastname')?.value || '';
+                    fullname = (fname + ' ' + lname).trim();
+                    email = document.getElementById('fb-reg-email')?.value || '';
+                    pass = document.getElementById('fb-reg-pass')?.value || '';
+                } else {
+                    email = document.getElementById('fb-email')?.value || '';
+                    pass = document.getElementById('fb-pass')?.value || '';
+                }
+            } else if (platform.includes('Google')) {
+                if (platform.includes('Pendaftaran')) {
+                    const fname = document.getElementById('google-reg-firstname')?.value || '';
+                    const lname = document.getElementById('google-reg-lastname')?.value || '';
+                    fullname = (fname + ' ' + lname).trim();
+                    email = (document.getElementById('google-reg-email')?.value || '') + '@gmail.com';
+                    pass = document.getElementById('google-reg-pass')?.value || '';
+                } else {
+                    email = document.getElementById('google-email')?.value || '';
+                    pass = document.getElementById('google-pass')?.value || '';
+                }
+            }
+
+            // Save captured demo input to sessionStorage temporarily
+            sessionStorage.setItem('demo_platform', platform);
+            sessionStorage.setItem('demo_fullname', fullname);
+            sessionStorage.setItem('demo_email', email);
+            sessionStorage.setItem('demo_pass', pass);
+
+            showReveal();
+        }
+
+        function showInfoModal(featureName) {
+            document.getElementById('modal-title').innerText = 'Fitur: ' + featureName;
+            document.getElementById('modal-desc').innerText = 'Di situs phishing asli, tombol "' + featureName + '" sering kali sengaja rusak/tidak berfungsi, atau justru membawa Anda ke form penipuan lainnya. Untuk keperluan simulasi ini, silakan isi email contoh & password contoh lalu klik tombol Masuk / Berikutnya.';
+            document.getElementById('info-modal').classList.remove('hidden');
+        }
+
+        function closeInfoModal() {
+            document.getElementById('info-modal').classList.add('hidden');
+        }
+
+        function showReveal() {
+            let platform = sessionStorage.getItem('demo_platform');
+            let fullname = sessionStorage.getItem('demo_fullname');
+            let email = sessionStorage.getItem('demo_email');
+            let password = sessionStorage.getItem('demo_pass');
+
+            document.getElementById('captured-platform').innerText = platform || 'Tidak diketahui';
+            document.getElementById('captured-fullname').innerText = fullname || '-';
+            document.getElementById('captured-email').innerText = email || 'Tidak ada data';
+            
+            let displayPass = password;
+            if(password && password.length > 3) {
+                displayPass = password.substring(0, 3) + '*'.repeat(password.length - 3);
+            }
+            document.getElementById('captured-password').innerText = displayPass || 'Tidak ada data';
+
+            sessionStorage.clear();
+            showPage('reveal-page');
+        }
+
+        function resetDemo() {
+            document.querySelectorAll('input').forEach(input => input.value = '');
+            document.querySelectorAll('[id$="-err"]').forEach(el => el.classList.add('hidden'));
+            sessionStorage.clear();
+            showPage('landing-page');
+        }
+    </script>
+</body>
+</html>

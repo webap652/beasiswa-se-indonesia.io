@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Algoritma Settingan Judi Online (House Always Wins)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;600;700;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            bg: '#090d16',
+                            card: '#111827',
+                            border: '#1f2937',
+                            accent: '#00ffcc',
+                            danger: '#ff2a6d',
+                            warning: '#ffb703',
+                            neonBlue: '#05d9e8',
+                            darkBlue: '#0d1b2a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                        display: ['Orbitron', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #060911;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(5, 217, 232, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(255, 42, 109, 0.08) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .neon-border-danger {
+            box-shadow: 0 0 15px rgba(255, 42, 109, 0.4);
+            border-color: #ff2a6d;
+        }
+
+        .neon-border-accent {
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+            border-color: #00ffcc;
+        }
+
+        .neon-text-danger {
+            text-shadow: 0 0 8px rgba(255, 42, 109, 0.6);
+        }
+
+        .neon-text-accent {
+            text-shadow: 0 0 8px rgba(0, 255, 204, 0.6);
+        }
+
+        .slot-reel {
+            transition: all 0.1s ease-in-out;
+        }
+
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.85; transform: scale(0.98); }
+        }
+
+        .rigged-badge {
+            animation: pulse-slow 2s infinite;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d1b2a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #05d9e8;
+        }
+    </style>
+</head>
+<body class="text-slate-200 font-sans min-h-screen flex flex-col justify-between p-3 sm:p-4 md:p-6 lg:p-8 antialiased">
+
+    <!-- HEADER -->
+    <header class="max-w-7xl mx-auto w-full mb-6">
+        <div class="bg-cyber-card/90 backdrop-blur-md border border-cyber-border p-4 md:p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-4 shadow-2xl relative overflow-hidden">
+            <div class="absolute -right-10 -top-10 w-40 h-40 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="flex items-center gap-4 z-10">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-600 to-pink-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-red-900/50">
+                    <i class="fa-solid fa-user-ninja"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="bg-red-500/20 text-red-400 border border-red-500/40 text-[10px] font-mono px-2 py-0.5 rounded uppercase tracking-widest font-bold">Demo Edukasi Maba</span>
+                        <span class="bg-amber-500/20 text-amber-400 border border-amber-500/40 text-[10px] font-mono px-2 py-0.5 rounded uppercase tracking-widest font-bold">Simulasi 100% Settingan</span>
+                    </div>
+                    <h1 class="text-xl md:text-2xl font-black font-display tracking-wide text-white mt-1">
+                        SIMULASI ALGORITMA JUDI ONLINE
+                        <span class="text-cyber-danger block md:inline text-sm md:text-xl font-mono">(HOUSE ALWAYS WINS)</span>
+                    </h1>
+                </div>
+            </div>
+
+            <!-- Disclaimer Alert -->
+            <div class="bg-slate-900/80 border border-amber-500/30 p-3 rounded-xl max-w-md text-xs text-slate-300 flex items-start gap-3 z-10">
+                <i class="fa-solid fa-triangle-exclamation text-amber-400 text-lg shrink-0 mt-0.5"></i>
+                <div>
+                    <p class="font-semibold text-amber-300">Tujuan Simulasi Ini:</p>
+                    <p class="text-slate-400 leading-relaxed">Membuktikan bahwa judi online **BUKAN** permainan keberuntungan, melainkan sistem program yang **100% telah disetting** agar bandar selalu untung dan pemain pasti habis.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT GRID -->
+    <main class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6">
+
+        <!-- LEFT & CENTER: BETTING BOARD & SLOT SPINNER (8 COLS) -->
+        <section class="lg:col-span-8 flex flex-col gap-6">
+
+            <!-- DISPLAY MESIN PUTAR (THE RIGGED SPINNER) -->
+            <div class="bg-cyber-card border border-cyber-border rounded-2xl p-6 relative overflow-hidden flex flex-col items-center justify-center text-center shadow-xl">
+                <div class="absolute top-3 left-4 flex items-center gap-2 text-xs font-mono text-slate-400">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span>ENGINE BANDAR: <strong class="text-cyber-accent">RIGGED_V4.2_ACTIVE</strong></span>
+                </div>
+
+                <div class="my-6">
+                    <p class="text-xs font-mono text-slate-400 uppercase tracking-widest mb-2">Hasil Putaran Mesin (Angka Pemenang)</p>
+                    
+                    <!-- Slot Box -->
+                    <div class="w-36 h-36 md:w-44 md:h-44 bg-slate-950 rounded-3xl border-4 border-cyber-border flex items-center justify-center relative shadow-inner group">
+                        <div id="slotDisplay" class="font-display text-6xl md:text-8xl font-black text-slate-500 transition-all duration-100">
+                            ?
+                        </div>
+                        <div id="winnerBadge" class="hidden absolute -bottom-3 bg-cyber-danger text-white text-[11px] font-mono px-3 py-1 rounded-full font-bold shadow-lg uppercase tracking-wider">
+                            Angka Settingan
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Status Text Display -->
+                <div id="spinStatus" class="text-sm font-mono text-slate-400 min-h-[24px] bg-slate-900/60 px-4 py-1.5 rounded-full border border-slate-800">
+                    Klik "Simulasikan Taruhan Bot" lalu klik "Putar / Acak".
+                </div>
+            </div>
+
+            <!-- BOARD TARUHAN 1 - 8 -->
+            <div class="bg-cyber-card border border-cyber-border rounded-2xl p-5 md:p-6 shadow-xl">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-800">
+                    <div>
+                        <h2 class="font-display font-bold text-lg text-white flex items-center gap-2">
+                            <i class="fa-solid fa-cubes text-cyber-neonBlue"></i>
+                            Papan Taruhan Angka (1 - 8)
+                        </h2>
+                        <p class="text-xs text-slate-400">Setiap kotak menunjukkan total taruhan & pasangan pemain.</p>
+                    </div>
+
+                    <!-- User Chip Balance Display -->
+                    <div class="flex items-center gap-2 bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-700">
+                        <i class="fa-solid fa-coins text-amber-400 text-sm"></i>
+                        <span class="text-xs text-slate-400">Saldo Dompet Kamu:</span>
+                        <span id="userBalanceText" class="font-mono font-bold text-emerald-400 text-sm">Rp 100.000</span>
+                    </div>
+                </div>
+
+                <!-- Grid 8 Angka -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 mb-6" id="bettingGrid">
+                    <!-- Cards will be populated by JavaScript -->
+                </div>
+
+                <!-- CONTROLS ACTION BUTTONS -->
+                <div class="flex flex-col sm:flex-row gap-3 items-center justify-between pt-2 border-t border-slate-800">
+                    <div class="flex items-center gap-2 w-full sm:w-auto">
+                        <button id="btnSimulateBots" onclick="simulateBotBets()" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 active:bg-slate-900 text-slate-200 border border-slate-600 px-4 py-2.5 rounded-xl font-semibold text-xs transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-robot text-cyber-neonBlue"></i>
+                            Simulasikan 10 Pemain Pasang
+                        </button>
+                        <button id="btnClearBets" onclick="clearBets()" class="bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800 p-2.5 rounded-xl text-xs transition" title="Bersihkan Taruhan">
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-2 w-full sm:w-auto">
+                        <button id="btnSpin" onclick="spinWheel()" class="w-full sm:w-auto bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 hover:from-red-500 hover:to-purple-500 text-white font-display font-bold px-6 py-3 rounded-xl shadow-lg shadow-red-900/40 text-sm tracking-wider uppercase transition transform active:scale-95 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-play"></i>
+                            PUTAR / ACAK (Jalankan Backend)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAST FORWARD SIMULATION FEATURE -->
+            <div class="bg-slate-900/90 border border-purple-500/30 rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-purple-900/50 border border-purple-500/40 flex items-center justify-center text-purple-400 font-bold">
+                        <i class="fa-solid fa-bolt-lightning"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-purple-200">Simulasi Otomatis 50 Putaran Cepat</h3>
+                        <p class="text-xs text-slate-400">Buktikkan secara statistik bahwa dalam 50 ronde, 100% uang pemain akan pindah ke dompet Bandar.</p>
+                    </div>
+                </div>
+
+                <button id="btnFastForward" onclick="runFastForward(50)" class="w-full md:w-auto bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-md transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-forward-fast"></i>
+                    Jalankan 50 Ronde Otomatis
+                </button>
+            </div>
+
+        </section>
+
+
+        <!-- RIGHT COLUMN: ALGORITHM INSPECTOR & STATISTICS (4 COLS) -->
+        <section class="lg:col-span-4 flex flex-col gap-6">
+
+            <!-- REAL-TIME DASHBOARD KEUNTUNGAN BANDAR -->
+            <div class="bg-cyber-card border border-cyber-border rounded-2xl p-5 shadow-xl">
+                <h2 class="font-display font-bold text-base text-white mb-4 flex items-center justify-between">
+                    <span><i class="fa-solid fa-chart-line text-emerald-400 mr-2"></i>Keuangan Bandar vs Pemain</span>
+                    <span class="text-[10px] bg-slate-800 text-slate-400 font-mono px-2 py-0.5 rounded">REAL-TIME</span>
+                </h2>
+
+                <div class="space-y-3">
+                    <!-- Total Taruhan Masuk -->
+                    <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800 flex items-center justify-between">
+                        <div>
+                            <span class="text-[11px] text-slate-400 block font-mono">UANG PEMAIN MASUK</span>
+                            <span id="statTotalIn" class="font-mono text-base font-bold text-blue-400">Rp 0</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-down-left text-blue-500/40 text-xl"></i>
+                    </div>
+
+                    <!-- Total Hadiah Dibayar -->
+                    <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800 flex items-center justify-between">
+                        <div>
+                            <span class="text-[11px] text-slate-400 block font-mono">HADIAH DIBAYAR KELUAR</span>
+                            <span id="statTotalOut" class="font-mono text-base font-bold text-red-400">Rp 0</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right text-red-500/40 text-xl"></i>
+                    </div>
+
+                    <!-- Profit Bersih Bandar -->
+                    <div class="bg-emerald-950/40 p-3.5 rounded-xl border border-emerald-500/30 flex items-center justify-between bg-gradient-to-r from-emerald-950/40 to-slate-900">
+                        <div>
+                            <span class="text-[11px] text-emerald-400 font-bold block font-mono">PROFIT BERSIH BANDAR</span>
+                            <span id="statHouseProfit" class="font-mono text-lg font-black text-emerald-400">Rp 0</span>
+                        </div>
+                        <div class="text-right">
+                            <span id="statWinRate" class="font-mono text-xs font-bold text-emerald-300 bg-emerald-900/60 px-2 py-1 rounded">100% PROFIT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Win/Loss Ratio Visual Bar -->
+                <div class="mt-4 pt-3 border-t border-slate-800">
+                    <div class="flex justify-between text-[11px] font-mono text-slate-400 mb-1">
+                        <span>Bagian Bandar: <strong id="barHousePct" class="text-emerald-400">100%</strong></span>
+                        <span>Bagian Pemain: <strong id="barPlayerPct" class="text-red-400">0%</strong></span>
+                    </div>
+                    <div class="w-full bg-slate-800 h-3 rounded-full overflow-hidden flex">
+                        <div id="barHouse" class="bg-emerald-500 h-full transition-all duration-500" style="width: 100%"></div>
+                        <div id="barPlayer" class="bg-red-500 h-full transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RUANG INSPEKSI LOG ALGORITMA BANDAR -->
+            <div class="bg-cyber-card border border-cyber-border rounded-2xl p-5 shadow-xl flex-1 flex flex-col">
+                <div class="flex items-center justify-between mb-3">
+                    <h2 class="font-display font-bold text-sm text-amber-400 flex items-center gap-2">
+                        <i class="fa-solid fa-bug text-amber-400"></i>
+                        Inspektur Algoritma (Ruang Rahasia Bandar)
+                    </h2>
+                    <span class="text-[10px] text-slate-500 font-mono">LOG TRANSPARAN</span>
+                </div>
+
+                <div id="auditLogContainer" class="bg-slate-950 border border-slate-800 rounded-xl p-3 font-mono text-xs text-slate-300 h-64 overflow-y-auto space-y-2 font-mono flex-1">
+                    <div class="text-slate-500 text-[11px] italic">
+                        [SISTEM SIAP] Pasang taruhan atau klik tombol "Simulasikan 10 Pemain" untuk melihat bagaimana logika bandar memilih angka pemenang...
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER EDUCATIONAL PANEL -->
+    <footer class="max-w-7xl mx-auto w-full">
+        <div class="bg-cyber-card border border-cyber-border p-6 rounded-2xl shadow-2xl">
+            <h2 class="font-display font-bold text-lg text-white mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-graduation-cap text-cyber-neonBlue"></i>
+                Fakta Ilmiah & Edukasi Bahaya Judi Online
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                <div class="bg-slate-900/70 p-4 rounded-xl border border-slate-800 space-y-1">
+                    <h3 class="font-bold text-amber-400 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-code"></i>
+                        1. Server Memiliki Akses Penuh
+                    </h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Pemain hanya melihat animasi putaran di layar HP. Di server backend, program komputer sudah menghitung saldo taruhan seluruh pemain dalam mikrodetik sebelum menentukan hasil yang paling menguntungkan pemilik judi.
+                    </p>
+                </div>
+
+                <div class="bg-slate-900/70 p-4 rounded-xl border border-slate-800 space-y-1">
+                    <h3 class="font-bold text-amber-400 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-brain"></i>
+                        2. Trik Psikologis "Hampir Menang"
+                    </h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Sistem judi sengaja memunculkan angka di sebelah angka taruhan kamu untuk memberi ilusi bahwa kamu "hampir menang". Ini dirancang memicu hormon dopamin agar kamu terus mengisi saldo (*top-up*).
+                    </p>
+                </div>
+
+                <div class="bg-slate-900/70 p-4 rounded-xl border border-slate-800 space-y-1">
+                    <h3 class="font-bold text-amber-400 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        3. Kemenangan Awal Adalah Umpan
+                    </h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Beberapa algoritma memberi kemenangan kecil di awal (*beginner's luck*) untuk membangun rasa percaya diri palsu. Begitu taruhan dinaikkan, algoritma penyerap uang (*draining algorithm*) langsung aktif.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left text-slate-500 text-xs">
+                <div class="max-w-2xl leading-relaxed">
+                    Dibuat untuk bahan materi dan orientasi simulasi edukasi mahasiswa baru. Bebas judi, 100% simulasi acak lokal tanpa transaksi keuangan nyata.
+                </div>
+                <div class="flex flex-col items-center md:items-end bg-slate-900/90 px-5 py-3 rounded-xl border border-cyber-border shadow-lg shadow-cyber-accent/5">
+                    <span class="font-black text-cyber-accent font-display text-sm tracking-wider uppercase">Admin Roys Wanimbo</span>
+                    <span class="text-[10px] font-mono tracking-widest text-slate-400 mt-1 flex items-center gap-1">
+                        POWERED BY <span class="text-white font-bold bg-slate-800 px-1.5 py-0.5 rounded">NAY</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // GLOBAL STATE DATA
+        const TOTAL_NUMBERS = 8;
+        const DEFAULT_CHIP = 20000;
+        
+        let bets = Array(TOTAL_NUMBERS + 1).fill(0); // Index 1 to 8
+        let botBetsList = Array(TOTAL_NUMBERS + 1).fill().map(() => []); // List of players who bet on each number
+        let userBalance = 100000;
+        let userBetNumber = null;
+        let userBetAmount = 0;
+
+        // Overall Stats
+        let stats = {
+            totalIn: 0,
+            totalOut: 0,
+            roundsPlayed: 0
+        };
+
+        let isSpinning = false;
+
+        // INITIALIZE APP ON LOAD
+        window.onload = function() {
+            renderBettingBoard();
+            updateStatsUI();
+            logMessage('system', 'Sistem Simulasi Siap. Mulai dengan klik "Simulasikan 10 Pemain Pasang".');
+        };
+
+        // Render 8 Number Cards
+        function renderBettingBoard() {
+            const grid = document.getElementById('bettingGrid');
+            grid.innerHTML = '';
+
+            for (let i = 1; i <= TOTAL_NUMBERS; i++) {
+                const totalBet = bets[i];
+                const isUserBet = (userBetNumber === i);
+                const botCount = botBetsList[i].length;
+
+                const card = document.createElement('div');
+                card.className = `bg-slate-900/90 border ${isUserBet ? 'border-emerald-400 ring-2 ring-emerald-400/30' : 'border-slate-800'} rounded-2xl p-3 flex flex-col justify-between relative overflow-hidden transition-all duration-200 hover:border-slate-700`;
+                
+                card.innerHTML = `
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-display font-black text-2xl text-white">${i}</span>
+                        <span class="text-[10px] font-mono px-2 py-0.5 rounded-full ${totalBet === 0 ? 'bg-slate-800 text-slate-500' : 'bg-blue-900/50 text-blue-300 border border-blue-700/50'}">
+                            ${botCount} Pemain
+                        </span>
+                    </div>
+
+                    <div class="my-1">
+                        <span class="text-[10px] text-slate-500 font-mono block">Total Taruhan:</span>
+                        <span class="font-mono text-xs font-bold ${totalBet === 0 ? 'text-slate-600' : 'text-amber-400'}">
+                            Rp ${totalBet.toLocaleString('id-ID')}
+                        </span>
+                    </div>
+
+                    <!-- User Bet Action Buttons -->
+                    <div class="mt-2 pt-2 border-t border-slate-800 flex items-center gap-1">
+                        <button onclick="placeUserBet(${i})" ${isSpinning ? 'disabled' : ''} class="w-full bg-slate-800 hover:bg-emerald-600 text-slate-300 hover:text-white text-[11px] font-semibold py-1.5 px-2 rounded-lg transition flex items-center justify-center gap-1">
+                            <i class="fa-solid fa-plus text-[10px]"></i>
+                            Pasang Rp 20rb
+                        </button>
+                    </div>
+
+                    ${isUserBet ? `
+                        <div class="absolute top-0 right-0 bg-emerald-500 text-slate-950 font-bold text-[9px] px-2 py-0.5 rounded-bl-lg font-mono">
+                            KAMU
+                        </div>
+                    ` : ''}
+                `;
+
+                grid.appendChild(card);
+            }
+        }
+
+        // SIMULATE 10 BOT PLAYERS PLACING BETS
+        function simulateBotBets() {
+            if (isSpinning) return;
+
+            // Names for simulated players
+            const botNames = ['Andi', 'Budi', 'Citra', 'Deni', 'Eka', 'Fajar', 'Gita', 'Hadi', 'Indah', 'Joko'];
+            
+            // Clear previous bets except keep user bet if any
+            for (let i = 1; i <= TOTAL_NUMBERS; i++) {
+                bets[i] = (userBetNumber === i) ? userBetAmount : 0;
+                botBetsList[i] = [];
+            }
+
+            // Randomly assign 10 bots to numbers 1-8
+            // Notice: 10 bots distributed over 8 numbers will leave some numbers with 0 bets or very small amounts!
+            botNames.forEach((bot) => {
+                const randomNum = Math.floor(Math.random() * TOTAL_NUMBERS) + 1;
+                const betAmount = (Math.floor(Math.random() * 4) + 1) * 20000; // 20k, 40k, 60k, 80k
+                
+                bets[randomNum] += betAmount;
+                botBetsList[randomNum].push({ name: bot, amount: betAmount });
+            });
+
+            renderBettingBoard();
+            logMessage('info', `10 Pemain simulasi telah memasang taruhan acak di papan.`);
+        }
+
+        // PLACE USER BET
+        function placeUserBet(number) {
+            if (isSpinning) return;
+
+            if (userBalance < DEFAULT_CHIP) {
+                logMessage('warning', 'Saldo kamu habis! Klik reset untuk memulihkan saldo.');
+                return;
+            }
+
+            if (userBetNumber === number) {
+                userBetAmount += DEFAULT_CHIP;
+            } else {
+                // If user changed number, refund old bet to simplified logic
+                if (userBetNumber) {
+                    bets[userBetNumber] -= userBetAmount;
+                    userBalance += userBetAmount;
+                }
+                userBetNumber = number;
+                userBetAmount = DEFAULT_CHIP;
+            }
+
+            userBalance -= DEFAULT_CHIP;
+            bets[number] += DEFAULT_CHIP;
+
+            document.getElementById('userBalanceText').innerText = `Rp ${userBalance.toLocaleString('id-ID')}`;
+            renderBettingBoard();
+            logMessage('user', `Kamu memasang Rp ${userBetAmount.toLocaleString('id-ID')} pada Angka ${number}.`);
+        }
+
+        // CLEAR ALL BETS
+        function clearBets() {
+            if (isSpinning) return;
+            if (userBetNumber) {
+                userBalance += userBetAmount;
+                document.getElementById('userBalanceText').innerText = `Rp ${userBalance.toLocaleString('id-ID')}`;
+            }
+            userBetNumber = null;
+            userBetAmount = 0;
+            bets = Array(TOTAL_NUMBERS + 1).fill(0);
+            botBetsList = Array(TOTAL_NUMBERS + 1).fill().map(() => []);
+            renderBettingBoard();
+            logMessage('system', 'Papan taruhan telah dibersihkan.');
+        }
+
+        // RIGGED BACKEND CALCULATOR (HOUSE ALWAYS WINS)
+        function calculateRiggedWinner() {
+            const zeroBetNumbers = [];
+            let minBetAmount = Infinity;
+            let minBetNumbers = [];
+
+            for (let i = 1; i <= TOTAL_NUMBERS; i++) {
+                const totalOnNum = bets[i];
+
+                if (totalOnNum === 0) {
+                    zeroBetNumbers.push(i);
+                }
+
+                if (totalOnNum < minBetAmount) {
+                    minBetAmount = totalOnNum;
+                    minBetNumbers = [i];
+                } else if (totalOnNum === minBetAmount) {
+                    minBetNumbers.push(i);
+                }
+            }
+
+            let winnerNumber = null;
+            let reason = "";
+
+            // RULE 1: If there are numbers with 0 total bets, ALWAYS pick one of them!
+            if (zeroBetNumbers.length > 0) {
+                winnerNumber = zeroBetNumbers[Math.floor(Math.random() * zeroBetNumbers.length)];
+                reason = `Sistem menemukan angka [${zeroBetNumbers.join(', ')}] Kosong (0 Taruhan). Bandar memilih angka ${winnerNumber} agar TIDAK ADA PEMAIN YANG MENANG (Profit 100%).`;
+            } 
+            // RULE 2: If all numbers have bets, pick the number with the LOWEST total bet amount!
+            else {
+                winnerNumber = minBetNumbers[Math.floor(Math.random() * minBetNumbers.length)];
+                reason = `Semua angka terisi. Bandar memilih angka ${winnerNumber} karena memiliki total taruhan terkecil (Rp ${minBetAmount.toLocaleString('id-ID')}) untuk meminimalkan pembayaran.`;
+            }
+
+            return { winnerNumber, reason, zeroBetNumbers, minBetAmount };
+        }
+
+        // SPIN WHEEL ANIMATION & PROCESS
+        function spinWheel() {
+            if (isSpinning) return;
+
+            // Calculate total pool
+            const totalRoundBet = bets.reduce((a, b) => a + b, 0);
+
+            if (totalRoundBet === 0) {
+                logMessage('warning', 'Tidak ada taruhan sama sekali! Pasang taruhan atau simulasikan bot terlebih dahulu.');
+                return;
+            }
+
+            isSpinning = true;
+            document.getElementById('btnSpin').disabled = true;
+            document.getElementById('btnSpin').classList.add('opacity-50');
+
+            // 1. Backend Engine Calculates Winner BEFORE spin animation even starts!
+            const result = calculateRiggedWinner();
+            const winner = result.winnerNumber;
+
+            // Log secret inspection
+            logMessage('rigged', `[ANALISIS BACKEND BANDAR]: ${result.reason}`);
+
+            // Update status text
+            const spinStatus = document.getElementById('spinStatus');
+            spinStatus.innerText = "Sistem backend sedang mengacak visual (Settingan sudah dikunci)...";
+            spinStatus.className = "text-sm font-mono text-amber-400 animate-pulse bg-amber-950/40 px-4 py-1.5 rounded-full border border-amber-500/40";
+
+            // Hide winner badge during roll
+            document.getElementById('winnerBadge').classList.add('hidden');
+
+            const slotDisplay = document.getElementById('slotDisplay');
+            let counter = 0;
+            const maxRolls = 20;
+
+            // Roll animation
+            const interval = setInterval(() => {
+                const randomTemp = Math.floor(Math.random() * TOTAL_NUMBERS) + 1;
+                slotDisplay.innerText = randomTemp;
+                counter++;
+
+                if (counter >= maxRolls) {
+                    clearInterval(interval);
+                    
+                    // Display Final Rigged Winner
+                    slotDisplay.innerText = winner;
+                    slotDisplay.className = "font-display text-6xl md:text-8xl font-black text-cyber-danger neon-text-danger transition-all duration-100";
+                    document.getElementById('winnerBadge').classList.remove('hidden');
+
+                    // Calculate Payouts
+                    processRoundResult(winner, totalRoundBet);
+
+                    isSpinning = false;
+                    document.getElementById('btnSpin').disabled = false;
+                    document.getElementById('btnSpin').classList.remove('opacity-50');
+
+                    spinStatus.innerText = `Ronde Selesai! Angka pemenang settingan bandar: ${winner}`;
+                    spinStatus.className = "text-sm font-mono text-emerald-400 bg-emerald-950/40 px-4 py-1.5 rounded-full border border-emerald-500/40";
+                }
+            }, 80);
+        }
+
+        // PROCESS ROUND RESULT & UPDATE FINANCIAL STATS
+        function processRoundResult(winner, totalRoundBet) {
+            // Payout multiplier e.g. 5x for guessing right number
+            const MULTIPLIER = 5;
+            
+            // Total winning payouts paid out by house
+            const winningBetsOnNum = bets[winner];
+            const housePayout = winningBetsOnNum * MULTIPLIER;
+
+            // Net house profit for this round
+            const houseNetProfit = totalRoundBet - housePayout;
+
+            // Check if user won
+            if (userBetNumber === winner) {
+                const userWinPayout = userBetAmount * MULTIPLIER;
+                userBalance += userWinPayout;
+                logMessage('user', `Hoki! Angka taruhan kamu (${winner}) terpilih. Saldo bertambah Rp ${userWinPayout.toLocaleString('id-ID')}`);
+            } else if (userBetNumber !== null) {
+                logMessage('user', `Kamu RUGI Rp ${userBetAmount.toLocaleString('id-ID')}. Angka kamu (${userBetNumber}) kalah dari settingan bandar (${winner}).`);
+            }
+
+            // Accumulate Statistics
+            stats.totalIn += totalRoundBet;
+            stats.totalOut += housePayout;
+            stats.roundsPlayed++;
+
+            // Reset round user bets
+            userBetNumber = null;
+            userBetAmount = 0;
+            bets = Array(TOTAL_NUMBERS + 1).fill(0);
+            botBetsList = Array(TOTAL_NUMBERS + 1).fill().map(() => []);
+
+            // Update UI Balance and Stats
+            document.getElementById('userBalanceText').innerText = `Rp ${userBalance.toLocaleString('id-ID')}`;
+            renderBettingBoard();
+            updateStatsUI();
+        }
+
+        // UPDATE FINANCIAL DASHBOARD UI
+        function updateStatsUI() {
+            const houseProfit = stats.totalIn - stats.totalOut;
+            
+            document.getElementById('statTotalIn').innerText = `Rp ${stats.totalIn.toLocaleString('id-ID')}`;
+            document.getElementById('statTotalOut').innerText = `Rp ${stats.totalOut.toLocaleString('id-ID')}`;
+            document.getElementById('statHouseProfit').innerText = `Rp ${houseProfit.toLocaleString('id-ID')}`;
+
+            // Calculate percentage share
+            let housePct = 100;
+            let playerPct = 0;
+
+            if (stats.totalIn > 0) {
+                playerPct = Math.min(100, Math.round((stats.totalOut / stats.totalIn) * 100));
+                housePct = 100 - playerPct;
+            }
+
+            document.getElementById('barHousePct').innerText = `${housePct}%`;
+            document.getElementById('barPlayerPct').innerText = `${playerPct}%`;
+            document.getElementById('barHouse').style.width = `${housePct}%`;
+            document.getElementById('barPlayer').style.width = `${playerPct}%`;
+
+            if (houseProfit >= 0) {
+                document.getElementById('statWinRate').innerText = `${housePct}% BANDAR PROFIT`;
+            } else {
+                document.getElementById('statWinRate').innerText = `BANDAR RUGI TEMPORER`;
+            }
+        }
+
+        // FAST FORWARD 50 ROUNDS AUTOMATIC SIMULATION
+        function runFastForward(roundsCount) {
+            if (isSpinning) return;
+
+            logMessage('system', `>>> Memulai Simulasi Otomatis ${roundsCount} Putaran Cepat...`);
+
+            let currentRound = 0;
+
+            const interval = setInterval(() => {
+                currentRound++;
+
+                // 1. Auto simulate bots for each round
+                for (let i = 1; i <= TOTAL_NUMBERS; i++) {
+                    bets[i] = 0;
+                }
+                for (let b = 0; b < 10; b++) {
+                    const randomNum = Math.floor(Math.random() * TOTAL_NUMBERS) + 1;
+                    bets[randomNum] += 20000;
+                }
+
+                const totalRoundBet = bets.reduce((a, b) => a + b, 0);
+
+                // 2. Rigged Winner
+                const result = calculateRiggedWinner();
+                const winner = result.winnerNumber;
+
+                // 3. Process payout
+                const housePayout = bets[winner] * 5;
+                stats.totalIn += totalRoundBet;
+                stats.totalOut += housePayout;
+                stats.roundsPlayed++;
+
+                if (currentRound >= roundsCount) {
+                    clearInterval(interval);
+                    
+                    // Reset UI
+                    bets = Array(TOTAL_NUMBERS + 1).fill(0);
+                    renderBettingBoard();
+                    updateStatsUI();
+
+                    document.getElementById('slotDisplay').innerText = winner;
+                    document.getElementById('slotDisplay').className = "font-display text-6xl md:text-8xl font-black text-cyber-danger neon-text-danger";
+                    document.getElementById('winnerBadge').classList.remove('hidden');
+
+                    logMessage('rigged', `[SELESAI SIMULASI 50 RONDE]: Total Uang Masuk: Rp ${stats.totalIn.toLocaleString('id-ID')} | Total Dibayar: Rp ${stats.totalOut.toLocaleString('id-ID')}. Keuntungan Bandar: Rp ${(stats.totalIn - stats.totalOut).toLocaleString('id-ID')}. (PEMAIN PASTI BANGKRUT)`);
+                }
+            }, 30);
+        }
+
+        // LOG MESSAGE TO INSPECTOR PANEL
+        function logMessage(type, message) {
+            const container = document.getElementById('auditLogContainer');
+            const time = new Date().toLocaleTimeString('id-ID', { hour12: false });
+            
+            const logItem = document.createElement('div');
+            logItem.className = "leading-relaxed border-b border-slate-900/60 pb-1";
+
+            if (type === 'rigged') {
+                logItem.innerHTML = `<span class="text-slate-500">[${time}]</span> <span class="text-red-400 font-bold">[MANIPULASI BANDAR]:</span> <span class="text-red-200">${message}</span>`;
+            } else if (type === 'user') {
+                logItem.innerHTML = `<span class="text-slate-500">[${time}]</span> <span class="text-emerald-400 font-bold">[PEMAIN]:</span> <span class="text-emerald-200">${message}</span>`;
+            } else if (type === 'warning') {
+                logItem.innerHTML = `<span class="text-slate-500">[${time}]</span> <span class="text-amber-400 font-bold">[PERINGATAN]:</span> <span class="text-amber-200">${message}</span>`;
+            } else {
+                logItem.innerHTML = `<span class="text-slate-500">[${time}]</span> <span class="text-blue-400 font-bold">[SISTEM]:</span> <span class="text-slate-300">${message}</span>`;
+            }
+
+            container.appendChild(logItem);
+            container.scrollTop = container.scrollHeight;
+        }
+    </script>
+</body>
+</html>
